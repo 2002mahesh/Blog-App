@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <%-include('partials/nav.ejs') -%>
+
+    <div class="container mt-3">
+        <% blogs.forEach(element => { %>
+            <div class="bg-gray-100 p-6">
+                <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+                    <div class="md:flex">
+                        <div class="md:flex-shrink-0">
+                            <img class="h-48 w-full object-cover md:w-48" src="<%= element.coverImageURL %>" alt="Card image">
+                        </div>
+                        <div class="p-8">
+                            <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Title</div>
+                            <p class="block mt-1 text-lg leading-tight font-medium text-black hover:underline"><%= element.title %></p>
+                            <p class="mt-2 text-gray-500"><%= element.body %></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</body>
+</html>
